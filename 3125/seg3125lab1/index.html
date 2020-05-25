@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<link href="style.css" rel="stylesheet" type="text/css">
+    <title>Questionnaire</title>
+  </head>
+  
+  <body> 
+		<div class="Info">
+			<h1>SEG3125 Survey</h1>
+			<form id="myform" action="index.php" >
+			<br>
+			<br>
+			<h3><i>Food.com has a consumer rating of 4.38 stars from 8 reviews indicating that most 
+				consumers are generally satisfied with their purchases. Food.com also ranks 15th among Food & Drink Other sites.</i></h3>
+			<h2>What do you think of the UI in this <a href="https://www.food.com/">food</a> site?</h2>	
+			<br>
+			<br>
+			<div class="brightness">
+				<a href="https://www.food.com/">
+					<img class="cover_img" src="food.JPG" alt="https://www.food.com/" >
+				</a>
+			</div>
+			<br>
+			<br>
+
+			
+		<div class="question_layer">
+			<h2> What do you think about the UI ?</h2>
+			<div class="list">
+				<input type="radio" name="question" id="The UI is too bland">
+				<label for="The UI is too bland">The UI is too bland</label><br>
+				<input type="radio" name="question" id="The UI is not efficient">
+				<label for="The UI is not efficient">The UI is not efficient</label><br>
+				<input type="radio" name="question" id="The UI is incoherent">
+				<label for="The UI is incoherent">The UI is incoherent</label><br>
+				<input type="radio" name="question" id="The UI is inconsistent">
+				<label for="The UI is inconsistent">The UI is inconsistent</label><br>
+			</div>
+		</div>
+
+		<div class="question_layer">
+			<h2>What`s your overall feeling about the UI ? </h2><br>
+			<select class="selection" id="favorite">
+				<option value="yes" selected="selected">yes, i find the web page attractive</option>
+				<option value="no">no, this website is boring</option>
+				<option value="no opinion">i have no opinion on this website</option>
+			</select>
+		</div>
+
+		<div class="question_layer">
+			<h2>What`s your favorite food recipe on food.com:</h2><br>
+			<textarea class="comment"></textarea>
+		</div>
+
+		<div class="question_layer">
+			<h2>food.com has 'what`s freash' which allow user to see the current review about the recipe,
+				do you like this function ?:</h2><br>
+			<img src="whatsfreash.JPG" alt="whatsfreash">
+			<div class="list">
+				<input type="radio" name="question" id="Usability">
+				<label for="yes">yes,i can use this function to find good food recipes </label><br>
+				<input type="radio" name="question" id="Consistency">
+				<label for="no">no, i think this function is useless</label><br>
+				<input type="radio" name="question" id="other">
+				<label for="other">other: </label>
+				<input type="text" name="question" id="other">
+			</div>
+		</div>
+			
+
+		<div class="question_layer">
+			<h2>Additional Comments:</h2><br>
+			<textarea class="comment"></textarea>
+		</div>
+		
+		<div class="question_layer">
+			<h2> Please tell a little bit about yourself </h2>
+			<p>First name: <input type="text" name="firstname"></p>
+			<p>Last name: <input type="text" name="lastname"></p>
+			<p>Email: <input type="text" name="lastname"></p>
+		</div>
+				
+		<br>
+				
+		<button id="submitButton" type="button" class="button">
+			SUBMIT your questionnaire
+		</button>
+			
+		<p id="signature">Site created by JunyangWang</p>	
+		
+		</form>
+	<div>
+  </body>
+</html> 
