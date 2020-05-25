@@ -1,3 +1,3 @@
 
-GregMitch.github.io
+qiangni-gif.github.io
 SEG3125
