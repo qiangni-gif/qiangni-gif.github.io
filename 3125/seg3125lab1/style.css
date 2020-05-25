@@ -1,0 +1,145 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+.Info{
+  border-radius: 25px;
+  background: url('layer.jpg');
+  background-position: left top;
+  background-repeat: repeat;
+  text-align: center;
+  border: 2px solid black;
+  margin: 40px 80px 40px 80px;
+  padding: 10px;
+}
+.brightness {
+  background-color: white;
+  display: inline-block;
+
+}
+.brightness img:hover {
+  opacity: .5;
+}
+img.cover_img{
+  height: 80%;
+  width: 80%;
+}
+
+body {
+  background-image: url('food_background.jpg');
+}
+
+.comment {
+  width: 40%;
+  height: 100px;
+  padding: 10px;
+  border-left: 6px solid #095484;
+  background-color: #f1f8e9;
+  font: 1.4em/1.6em cursive;
+  color: #095484;
+}
+
+h1 {
+  font-family: "Lucida Console", Courier, monospace;
+	font-size: 60px;
+	text-align: center;
+	margin: 0;
+	padding: 20px 0;
+	color: #000000;  /* Fuchsia */
+	text-shadow: 3px 3px 1px rgb(65, 51, 51);
+}
+
+h2 {
+	font-size: 30px;
+	text-align: center;
+	margin: 0;
+	padding: 5px 0;
+	color: #000000;  /* Fuchsia */
+	text-shadow: 2px 1px 1px rgb(65, 65, 65);
+}
+
+h3 {
+	font-size: 20px;
+	text-align: center;
+	margin: 0;
+	padding: 5px 0;
+	color: #000000;  /* Fuchsia */
+	text-shadow: 1px 1px 1px rgb(65, 65, 65);
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+}
+
+p {
+  color: red;
+}
+
+.list{
+  display: inline-block; 
+  text-align: left;
+}
+
+table {
+	border: 1px solid black;
+	background-color: #f1f1c1;
+}
+
+/* Defining styling for a specific element type - each question */
+.question_layer {
+  background-color: #666;
+  color: white;
+  text-align: center;
+  margin: 10px 20px 20px 20px;
+  padding: 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Defining styling for a specific element with an id */
+#signature {
+  text-align: right;
+  color: red;
+  font-style: italic;
+  font-size: 75%;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+input[type=text] {
+  padding:5px; 
+  border:2px solid #ccc; 
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+input[type=text]:focus {border-color:#333; }
+  
