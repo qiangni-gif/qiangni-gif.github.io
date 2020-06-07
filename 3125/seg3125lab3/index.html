@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<! This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp>
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <title>Qiangni Groceries</title>
+</head>
+
+<body>
+  <div class="store">
+    <h1>Qiangni Groceries</h1>
+  </div>
+
+<!-- Tab links, each one with an onclick event associated with it -->
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="#" class="tablinks" onclick="openInfo(event, 'Client')">Customer</a>
+  <a href="#" class="tablinks" onclick="openInfo(event, 'Products')">Products</a>
+  <a href="#" class="tablinks" onclick="openInfo(event, 'Cart')">Shopping Cart</a>
+</div>
+
+<div id="main">
+	<h2>Select open button to access sidebar</h2>
+	<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+
+	<!-- Tab content -->
+	<div id="Client" class="tabcontent">
+	<h3>Customer Information</h3>
+	<p>Tell us a bit about you.</p>
+	
+	<form name="myForm">
+		Please specify your diet:
+		<input type="radio" name="myRadios" checked = "checked" value="" />(Please make a selection)
+		<input type="radio" name="myRadios"  value="Vegetarian" />Vegetarian
+		<input type="radio" name="myRadios"  value="GlutenFree" />Gluten-Free
+		<input type="radio" name="myRadios"  value="Vegetarian&GlutenFree" />Vegetarian and Gluten-Free
+		<input type="radio" name="myRadios"  value="Organic" />Organic
+		<input type="radio" name="myRadios"  value="None" />None
+	</form>
+
+	</div>
+
+	<div id="Products" class="tabcontent">
+	<h3>Your personalized suggestions</h3>
+	<p>Our pre-selections based on your diet.</p>
+	
+	<div class="dropdown">
+		Category:
+		<select id="category" name="category" onchange="Filter(this.id, 'displayProduct')">
+		<option value="all">All</option>
+		<option value="bakery">Bakery</option>
+		<option value="beverages">Beverages</option>
+		<option value="dairy">Dairy</option>
+		<option value="cooking products">Cooking products</option>
+		<option value="fruits">Fruits</option>
+		<option value="meat">Meat</option>
+		<option value="vegetables">Vegetables</option>
+		<option value="fast food">Fast food</option>
+		</select><br><br>
+	</div>
+		Choose items to buy:
+		<div id="displayProduct"></div>
+		<button id="addCart" type="button" class="block" onclick="selectedItems()">
+			Add selected items to Shopping cart.
+		</button>
+	</div>
+
+	<div id="Cart" class="tabcontent">
+	<h3>Shopping cart</h3>
+	<p>Here are the contents of your cart.</p>
+	<div id="displayCart"></div>
+	</div>
+</div>
+<script src="groceries.js"></script>
+<script src="main.js"></script>
+
+<p id="signature">Site created by JunyangWang</p>
+</body>
+</html>
