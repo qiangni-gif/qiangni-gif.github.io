@@ -1,0 +1,312 @@
+<!-- This file contains many elements adapted from the online tutoral -->
+<!-- on Bootstrap 4 as found here: https://www.w3schools.com/bootstrap4/default.asp -->
+
+<!-- Images source: -->
+<!-- jule.jpg taken from https://www.freepik.com/premium-vector/cartoon-successful-hairdresser_3951066.htm -->
+<!-- Erwind.jpb https://www.kijiji.ca/v-construction-trades-jobs/winnipeg/bicycle-mechanic/1499188319 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- The head should contain an appropriate title for your site -->
+<head>
+    <title>Module 4 - Labo</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Style sheet (CSS) and JavaScript scripts necessary to use Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>   
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/excite-bike/jquery-ui.css" rel="stylesheet" type="text/css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> 
+    <script src="./service.js"></script>
+
+    <!-- Your own additional style sheet -->
+    <link href="styles/style.css" rel="stylesheet" type="text/css">
+</head>
+
+
+<body>
+    <nav class="navbar navbar-expand-md bg-secondary navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Baron's Workshop</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#about"><img src="images/icons8-barber-chair-100.png" alt="logo" style="width:30px;"> About Us</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#service"><img src="images/icons8-comb-100.png" alt="logo" style="width:30px;"> Service</a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#staff"><img src="images/icons8-hairdresser-48.png" alt="logo" style="width:30px;"> Staff</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#payment"><img src="images/icons8-online-payment-64.png" alt="logo" style="width:30px;"> Payment</a>
+            </li>   
+         </ul>
+        </div>  
+    </nav>
+    <br>
+
+
+    <div class = "top" id="top">
+            <div class="container-md p-3 my-3 border bg-secondary text-white text-center" id="about">
+                <h1>Welcome to Baron's Workshop</h1>
+                <p>75 Laurier Ave E, Ottawa, ON K1N 6N5</p>
+            </div>
+            <!-- When you have messages to tell, remember that center align is not always the best choice -->
+            <div class="container-md p-3 my-3 border bg-light text-muted" >
+                <h3><img src="images/icons8-barber-chair-100.png" alt="logo" style="width:50px;"> WHY WE DO IT:</h3>
+                <p>We believe it's our responsibility to help preserve the art of men's grooming through tradition, education and innovation.</p>
+            </div>
+        
+            <!-- Bootstrap has components for alerts: https://www.w3schools.com/bootstrap4/bootstrap_alerts.asp  -->
+            <!-- These can be useful for making sure someone reads something before continuing -->
+            <div class="container">
+                <div class="alert alert-warning alert-dismissible">
+                    <h2>Important Notice</h2>
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <p>Due to <strong>COVID-19</strong>, all stylists are required to wear a CDC/PHAC-recommended face mask that covers the nose and mouth in a snug manner for their entire shift. We kindly ask you also wear a well-fitting mask during your visit.</p>
+                    <p>Some salons are temporarily suspending face-to-face services such as beard trims and waxing. </p>
+                </div>
+            </div>
+        
+            <!-- Bootstrap has different types of tables https://www.w3schools.com/bootstrap4/bootstrap_tables.asp -->
+            <!-- Might be (or not) useful to show some information to the user -->
+            <div class="container" id="service">
+                <h2><img src="images/icons8-comb-100.png" alt="logo" style="width:50px;"> Service description</h2>
+                <p>Here is a list of services offered</p>            
+                <table class="table table-info table-hover text-center">
+                    <thead>
+                    <tr>
+                        <th>Service</th>
+                        <th>price</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td> 
+                            <p>Haircut</p>
+                            <img src="images/Haircut.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$35<t/d>
+                        <td>The classic barber service. Long or short, clipper or scissor, with razor finish.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Shave</p>
+                            <img src="images/Shave.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$35</td>
+                        <td>Hot towel, straight razor and an amazingly close shave.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Haircut + Shave</p>
+                            <img src="images/Haircut_Shave.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$60</td>
+                        <td>It's exactly what you think it is, for a better price.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>Deluxe BEARD TRIM</p>
+                            <img src="images/BEARD_TRIM.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$15</td>
+                        <td>Trimming, shaping and lining up the facial forest with clipper, scissor or blade.</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>BEARD TRIM</p>
+                            <img src="images/BEARD_TRIM_2.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$10</td>
+                        <td>Trimming & shaping the facial forest with clipper or scissors only. </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p>CLEAN UP</p>
+                            <img src="images/CLEAN_UP.jpg" alt="Haircut" width=60 height=60>
+                        </td>
+                        <td>$10</td>
+                        <td>Keeping your hairline fresh between cuts. </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        
+        
+            
+        
+            <!-- You'll certainly need buttons at some point in your site -->
+            <!-- https://www.w3schools.com/bootstrap4/bootstrap_buttons.asp -->
+            <!-- Remember how we talked about choosing a hue and changing the saturation for active/inactive -->
+            <!-- This idea is already part of the components in Bootstrap -->
+        
+        
+        
+            <!-- Including a modal https://www.w3schools.com/bootstrap4/bootstrap_modal.asp -->
+            <!-- Modals are useful for additional information or questions -->
+            <!-- Here the modal is used for a little survey -->
+            
+        
+            <!-- Presenting the staff with cards: https://www.w3schools.com/bootstrap4/bootstrap_cards.asp -->
+            <!-- Card columns allows multiple cards next to each other -->
+            <!-- The first card's button doesn't go anywhere, it could be a modal --> 
+            <!-- My second card limits the information seen and uses collapsible to show more -->
+            <div class="container p-3" id="staff">
+                <h2><img src="images/icons8-hairdresser-48.png" alt="logo" style="width:50px;"> Meet our Staff</h2>
+                <div class="card-columns">
+                    <div class="card bg-success" style="width:200px">
+                        <img class="card-img-top" src="images/nick.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">nick</h4>
+                            <p class="card-text">nick discovered his passion for hair at young age. He turned his passion into reality and quickly became successful with his career.</p>
+                            <!-- collapsible part -->
+                            <a href="#profile_nick" class="btn btn-primary" data-toggle="collapse">See Profile</a>
+                            <div id="profile_nick" class="collapse p-3">
+                                <p>With over 8 years of professional experience and cosmetology education, he constantly remains up to date with the latest hair trends. 
+                                    nick possesses a variety of techniques to give his clients what they want and specializes in colour corrections and balayage.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card bg-danger" style="width:200px">
+                        <img class="card-img-top" src="images/Jule.jpg" alt="Card image" style="width:100%">
+                        <div class="card-body">
+                            <h4 class="card-title">Jules</h4>
+                            <p class="card-text">Jules is a highly trained colourist with over ten years of experience in the beauty industry!</p>
+                            <!-- collapsible part -->
+                            <a href="#profile_jule" class="btn btn-primary" data-toggle="collapse">See Profile</a>
+                            <div id="profile_jule" class="collapse p-3">
+                                <p>Since moving to Ottawa eight years ago, she has worked with many different companies and brands as a platform artist,
+                                    educator and session stylist, and has styled the hair of musicians and artists, 
+                                    as well as having her work published in several prominent digital and print magazines. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="container" id="payment">
+                <h2><img src="images/icons8-online-payment-64.png" alt="logo" style="width:50px;"> Book Appointment</h2>
+                <button type="button" class="btn btn-sm btn-outline-primary" data-toggle="modal" data-target="#book"><span style="font-size:20px;">Book appointment</span></button>
+                
+                
+                <div class="modal fade" id="book" role="dialog">
+                    <div class="modal-dialog">  
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="container">
+                                    <h2>Book a appointment</h2>
+                                    <form>
+                                        <label><b>Your Info</b></label>
+                                        <br>
+
+                                        <label>Name: <input id="name" type="text" value=""></label><br>
+            
+                                        <a data-toggle="tooltip" title="format: 123-456-7890"><b>Phone:</b> <input id  = "phone" type="text" value="" placeholder="(XXX)-XXX-XXXX"></a><br>
+            
+                                        <label>Choose Hair Dresser:</label>
+            
+                                        <select name="hairDresser" id="worker">
+                                            <option value="nick">nick</option>
+                                            <option value="Jules">Jules</option>
+                                        </select>
+                                        
+                                        <br>
+
+                                        <a data-toggle="tooltip" title="select a hairDresser and pick a desired date"><b>Appointment</b></a>
+                                        <br>
+
+                                        <label>Choose Service:</label>
+            
+                                        <select name="hairDresser" >
+                                            <option value="Haircut">Haircut</option>
+                                            <option value="Shave">Shave</option>
+                                            <option value="Haircut and Shave">Haircut & Shave</option>
+                                            <option value="BEARD TRIM">BEARD TRIM</option>
+                                            <option value="BEARD TRIM">Deluxe BEARD TRIM</option>
+                                            <option value="Clean Up">Clean Ups</option>
+            
+                                        </select>
+            
+                                        <br>
+            
+                                        <label>What Date: <input id="dateInput" type="date" value=""></label><br>
+                                    
+                                        <label>What Time: <input id="timeInput" type="time" value=""></label> <br>
+
+                                        <a data-toggle="tooltip" title="We require your credit card information in order to reserve your spot."><b>Payment Info</b></a>
+                                        <br>
+
+                                        <label>Credit Card #: <input id  = "cardNumber" type="text" value="" placeholder="XXXXXXXXXXXXXXXX"></label><br>
+                                        <data-toggle="tooltip" title="3-digits code on the back of your card"><b>Credit Card CSV:</b><input maxlength="3" size="3" id  = "CSV" type="text" value="" placeholder="(XXX)"></a>
+                                    
+                                    </form>
+                                    <br>
+                                    <button id="pay" type="button" class="btn btn-outline-primary" > <span style="font-size:20px;">Book</span></button>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div> 
+                    </div>    
+                </div>
+            </div>
+
+        
+            <div class="container" id="contact">
+                <div class="container-md p-3 my-3 border bg-secondary text-white">
+                    <h1>Baron's Workshop</h1>
+                    <p><b>contact info:</b></p>
+                    <p>(012)-345-6789</p>
+                    <p>Baron'sWorkshop@gmail.com</p>
+                </div>
+                <div id="accordion">
+                    <div class="card">
+                        <div class="card-header">
+                            <a class="collapsed card-link" data-toggle="collapse" href="#collapseSurvey">Customer Survey</a>
+                        </div>
+                        <div id="collapseSurvey" class="collapse" data-parent="#accordion">
+                            <div class="container">
+                                <h2><img src="images/icons8-bookmark-100.png" alt="logo" style="width:50px;"> How did you hear about us?</h2>
+                                <p>Rate from 0 to 10:</p>
+                                <form>
+                                    <label for="satisfaction">Rateing: <span id = "myValue"></span></label><br>
+                                    <input id="slider" type="range" name="satisfaction" min="0" max="10" value="5">
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <p id="signature">Site created by JunyangWang</p>
+    </div>
+
+
+</body>
+
+<script>
+    var slider = document.getElementById("slider");
+    var output = document.getElementById("myValue");
+    output.innerHTML = 5
+    slider.oninput = function() {
+        output.innerHTML = this.value
+    }
+</script>
+</html>
