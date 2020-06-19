@@ -22,7 +22,21 @@ function validatePhone(txtPhone) {
 
 function validatecardnumber(inputtxt)
 {
-  var cardno = /^([0-9]{12}(?:[0-9]{3})?)$/;
+  var cardno = /^([0-9]{12}(?:[0-9]{4})?)$/;
+  if(cardno.test(inputtxt))
+        {
+      return true;
+        }
+      else
+        {
+        
+        return false;
+        }
+}
+
+function validateCSV(inputtxt)
+{
+  var cardno = /^[0-9]{3}$/;
   if(cardno.test(inputtxt))
         {
       return true;
@@ -53,9 +67,6 @@ function disableDates(date){
     }else if(document.getElementById("worker").value == "Jules"){
         var string = jQuery.datepicker.formatDate(setDateFormat, date);
         return [ JulesUND.indexOf(string) == -1 ]
-    }else{
-        var string = jQuery.datepicker.formatDate(setDateFormat, date);
-        return [ unavailableDates.indexOf(string) == -1 ]
     }
 }
 
@@ -72,6 +83,7 @@ $(document).ready(function(){
         let phone = validatePhone("phone");
         let worker = document.getElementById("worker").value;
         let cardNumber = validatecardnumber(document.getElementById("cardNumber").value);
+        let CSV = validateCSV(document.getElementById("CSV").value);
         let dateBook = document.getElementById("dateInput").value;
         let timeBook = document.getElementById("dateInput").value;
         if (!phone){
@@ -81,11 +93,21 @@ $(document).ready(function(){
         }
         else if(!cardNumber) {
             alert("Not a valid Visa credit card number!");
-            $("#phone").removeClass("error");
+            $("#cardNumber").val("XXXXXXXXXXXXXXXX");
+            $("#cardNumber").removeClass("error");
         }
-        else if ((fname != ""&& /^[a-zA-Z]+$/.test(fname))&& phone && (worker != null) && cardNumber && (dateBook != "") && (timeBook != "")){
+        else if(!CSV){
+            alert("Not a valid CSV number!");
+            $("#CSV").val("(XXX)");
+            $("#CSV").removeClass("error");
+        }
+        else if ((fname != ""&& /^[a-zA-Z]+$/.test(fname))&& phone && (worker != null) && cardNumber && CSV && (dateBook != "") && (timeBook != "")){
             $("#phone").removeClass("error");
             $("#cardNumber").removeClass("error");
+            $("#CSV").removeClass("error");
+        }
+        else{
+            alert("Please fill all the form!");
         }
     });
 
