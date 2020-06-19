@@ -1,0 +1,33 @@
+
+/* Style sheet
+   color picker www.w3schools.com/colors/colors_picker.asp
+*/
+
+/* Bootstrap default font-family is Helvetica Neue */
+h1 {
+  font-family: "Times New Roman", Times, serif;
+  text-shadow: 3px 3px 1px black;
+  
+}
+.top {
+  border-radius: 10px;
+  background: white;
+  background-position: left top;
+  background-repeat: repeat;
+  align-items: center;
+  border: 2px solid black;
+  margin-top: 200px;
+  margin-bottom: 200px;
+  padding: 10px;
+}
+
+body {
+  background-image: url("../images/barber-shop.gif");
+  background-repeat:  repeat;
+  background-color: #cccccc;
+}
+
+input:focus {
+  background-color: yellow;
+}
+
