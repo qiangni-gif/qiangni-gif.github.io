@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<link href="http://localhost:3000/style" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>  
+	<script src="/assets/action.js"></script>
+	
+    <title>Questionnaire</title>
+</head>
+  
+<body> 
+	<div class="Info">
+			<h1>SEG3125 Survey</h1>
+			<form id="myform" action="index.php" >
+			<br>
+			<br>
+			<h3><i>Food.com has a consumer rating of 4.38 stars from 8 reviews indicating that most 
+				consumers are generally satisfied with their purchases. Food.com also ranks 15th among Food & Drink Other sites.</i></h3>
+			<h2>What do you think of the UI in this <a href="https://www.food.com/">food</a> site?</h2>	
+			<br>
+			<br>
+			<div class="brightness">
+				<a href="https://www.food.com/">
+					<img class="cover_img" src="http://localhost:3000/food" alt="https://www.food.com/" >
+				</a>
+			</div>
+			<br>
+			<br>
+
+			
+		<div class="question_layer">
+			<h2> What do you think about the UI ?</h2>
+			<div class="container-md p-3 my-3 border bg-secondary text-white" id="survey">
+				<label><input type="radio" name="aboutUI" value = "The UI is too bland" id="The UI is too bland">The UI is too bland</label><br>
+				<label><input type="radio" name="aboutUI" value = "The UI is not efficient" id="The UI is not efficient">The UI is not efficient</label><br>
+				<label><input type="radio" name="aboutUI" value = "The UI is incoherent" id="The UI is incoherent">The UI is incoherent</label><br>
+				<label><input type="radio" name="aboutUI" value = "The UI is inconsistent" id="The UI is inconsistent">The UI is inconsistent</label><br>
+			</div>
+		</div>
+
+		<div class="question_layer">
+			<h2>What`s your overall feeling about the UI ? </h2><br>
+			<div class="container-md p-3 my-3 border bg-secondary text-white " id="survey">
+				<select class="browser-default custom-select" name = "feel" id="favorite">
+					<option value="yes, i find the web page attractive" selected="selected">yes, i find the web page attractive</option>
+					<option value="no, this website is boring">no, this website is boring</option>
+					<option value="i have no opinion on this website">i have no opinion on this website</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="question_layer">
+			<h2>What`s your favorite food recipe on food.com:</h2><br>
+			<textarea class="form-control" name = "comment" id="comment" rows="3"></textarea>
+		</div>
+
+		<div class="question_layer">
+			<h2>food.com has 'what`s freash' which allow user to see the current review about the recipe,
+				do you like this function ?:</h2><br>
+			<img src="http://localhost:3000/whatsfreash" alt="whatsfreash">
+			<div class="onoffswitch">
+				<input type="checkbox" name="yes_no" class="onoffswitch-checkbox" id="myonoffswitch" tabindex="0"data-on="Yes" data-off="No" value="No">
+				<label class="onoffswitch-label" for="myonoffswitch">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+		</div>
+
+		<div class="question_layer">
+			<h2>What goals you think this website achived ?</h2><br>
+			<div class = "container-md p-3 my-3 border bg-secondary text-white">
+				<input type="checkbox" name="goal" value="Functionality"> Functionality<br>
+				<input type="checkbox" name="goal" value="Consistency"> Consistency<br>
+				<input type="checkbox" name="goal" value="Efficiency"> Efficiency<br>
+				<input type="checkbox" name="goal" value="Usability"> Usability<br>
+				<input type="checkbox" name="goal" value="Security"> Security<br>
+				<input type="checkbox" name="goal" value="Reliability"> Reliability<br>
+			</div>
+		</div>
+
+		<div class="question_layer">
+			<h2>Rate the UI from 0 to 5:</h2><br>
+			
+				<label for="satisfaction">Rateing: <span id = "myValue"></span></label><br>
+				<input class = "custom-range w-50" id="slider" type="range" name="range" min="0" max="5" value="2.5">
+			
+		</div>
+		
+		<div class="question_layer">
+			<h2> Please tell a little bit about yourself </h2>
+			<div class="container-md p-3 my-3 border bg-secondary text-white" id="survey">
+				<p>First name: <input type="text" name="firstname" placeholder="fname..." required /></p>
+				<p>Last name: <input type="text" name="lastname" placeholder="lname..." required/></p>
+				<p>Email: <input type="text" name="email" placeholder="email..." required/></p>
+			</div>
+		</div>
+				
+		<br>
+				
+		<button id="submitButton" type="submit" class="button">
+			SUBMIT your questionnaire
+		</button>
+			
+		<p id="signature">Site created by JunyangWang</p>	
+		
+		</form>
+	<div>
+</body>
+<script>
+    var slider = document.getElementById("slider");
+    var output = document.getElementById("myValue");
+    output.innerHTML = 5
+    slider.oninput = function() {
+        output.innerHTML = this.value
+	}
+
+	var switches = document.querySelectorAll('.onoffswitch');
+
+	switches.forEach(function(item){
+	item.addEventListener('change', function(){
+		var checkbox = this.querySelector('input'),
+			data = checkbox.dataset;
+
+		checkbox.value = checkbox.checked ? data.on : data.off;
+		console.log(checkbox.value)
+	});
+	});
+</script>
+</html> 
