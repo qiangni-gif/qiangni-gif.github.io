@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { withTranslation } from 'react-i18next';
+
+
+
 
 class Booking extends Component {
 
@@ -81,16 +85,17 @@ class Booking extends Component {
 
 	onSubmit = (e) => {
 		e.preventDefault();
+		const { t } = this.props;
 		// passing the two date strings to dateValidation()
 		const flag = this.dateValidation(this.state.details.issueDate, this.state.details.returnDate);
 		// To stop the function from further excuting return something
 		if(flag===1){
 			this.setState({details: {...this.state.details, issueDate: ""}});
-			return alert("You can't book a car in the previous date!!!");
+			return alert(t("booking:You can't book a car in the previous date!!!"));
 		}
 		if(flag===2){
 			this.setState({details: {...this.state.details, returnDate: ""}});
-			return alert("Please enter a valid return date!!!");
+			return alert(t("booking:Please enter a valid return date!!!"));
 		}
 
 		const updatedCar = {...this.props.carToBook, userDetails: this.state.details, book_status: true};
@@ -100,6 +105,7 @@ class Booking extends Component {
 	}
 
 	render() {
+		const { t } = this.props;
 
 		if(Object.keys(this.props.carToBook).length===0){
 			return null;
@@ -118,10 +124,10 @@ class Booking extends Component {
 							</div>
 							<div className="col-md-8 d-flex justify-content-center align-items-center">
 								<div className="p-3">
-									<h2 className="border-bottom pb-3">Booking Confirmed!</h2>
-									<p className="text-secondary">You have booked: <span className="text-dark font-weight-bold">{this.props.carToBook.model}</span></p>
-									<p className="text-secondary mb-4">Appointment Date: <span className="text-dark font-weight-bold">{this.formatDate(this.state.details.issueDate)}</span> </p>
-									<p><button className="btn btn-dark float-right" onClick={this.closeModal}>Countinue <img src="./imgs/icons/arrow.png" className="icon_img" alt="arrow"/></button></p>
+									<h2 className="border-bottom pb-3">{t("booking:Booking_Confirmed")}</h2>
+									<p className="text-secondary">{t("booking:You_have_booked")} <span className="text-dark font-weight-bold">{this.props.carToBook.model}</span></p>
+									<p className="text-secondary mb-4">{t("booking:Appointment_Date")} <span className="text-dark font-weight-bold">{this.formatDate(this.state.details.issueDate)}</span> </p>
+									<p><button className="btn btn-dark float-right" onClick={this.closeModal}>{t("booking:Countinue")} <img src="./imgs/icons/arrow.png" className="icon_img" alt="arrow"/></button></p>
 								</div>
 							</div>
 						</div>
@@ -134,37 +140,37 @@ class Booking extends Component {
 						</div>
 					</div>
 					<div className="col-md-9 py-5" id="booking-form">
-                        <h4>Booking Details</h4>
+                        <h4>{t("booking:Booking_Details")}</h4>
                         <hr/>
                         <form className="pt-3" onSubmit={this.onSubmit}>
                             <div className="form-row">
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="name">Name</label>
-                                        <input type="text" title="You can only use letters & spaces!" className="form-control" name="name" value={this.state.details.name} onChange={this.onChange} pattern="^[A-Za-z\s]{1,}[A-Za-z\s]{0,}$" required />
+                                        <label htmlFor="name">{t("booking:name")}</label>
+                                        <input type="text" title={t("booking:You can only use letters & spaces!")} className="form-control" name="name" value={this.state.details.name} onChange={this.onChange} pattern="^[A-Za-z\s]{1,}[A-Za-z\s]{0,}$" required />
                                     </div>
                                 </div>
                                 <div className="col-md-6">
                                     <div className="form-group">
-                                        <label htmlFor="contact">Contact Number</label>
-                                        <input type="text" title="Please enter a valid phone no.!" className="form-control" name="phoneNo" value={this.state.details.phoneNo} onChange={this.onChange} pattern="^[6-9]\d{9}$" required />
+                                        <label htmlFor="contact">{t("booking:Contact_Number")}</label>
+                                        <input type="text" title={t("booking:Please enter a valid phone no.!")} className="form-control" name="phoneNo" value={this.state.details.phoneNo} onChange={this.onChange} pattern="^[6-9]\d{9}$"  required />
                                     </div>
                                 </div>
                             </div>
                             <div className="form-row">
                                 <div className="col-md-12">
                                     <div className="form-group">
-                                        <label htmlFor="issueDate">Issue Date</label>
+                                        <label htmlFor="issueDate">{t("booking:Issue_Date")} </label>
                                         <input type="date" className="form-control" name="issueDate" value={this.state.details.issueDate} onChange={this.onChange} required />
                                     </div>
                                 </div>
                             </div>
                             <div className="row pt-4">
 	                            <div className="col-6">
-	                                <Link to="/" className="btn btn-light">Cancel</Link>
+	                                <Link to="/" className="btn btn-light">{t("booking:Cancel")}</Link>
 	                            </div>
 	                            <div className="col-6 text-align-right">
-	                                <button type="submit" className="btn btn-dark">Book Now</button>
+	                                <button type="submit" className="btn btn-dark">{t("booking:Book_Now")} </button>
 	                            </div>
 	                        </div>
                         </form>
@@ -194,4 +200,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Booking);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(Booking));

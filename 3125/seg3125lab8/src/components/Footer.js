@@ -1,7 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from 'react-i18next';
 
 function Footer() {
+  const [t, i18n] = useTranslation();
   return (
     <div className="container footer border-top pt-3">
       <div class="card bg-transparent text-white">
@@ -27,22 +29,22 @@ function Footer() {
 
                 <div className="mb-4">
                   <Link to="/" className="text-secondary mr-4">
-                    Home
+                    {t("footer:home")}
                   </Link>
                   <Link to="/about" className="text-secondary mr-4">
-                    About
+                    {t("footer:about")}
                   </Link>
                   <Link to="/page404" className="text-secondary mr-4">
-                    Contact
+                    {t("footer:contact")}
                   </Link>
                 </div>
                 
                 <div className="mb-4">
                   <Link to="/page404" className="text-secondary mr-4">
-                    Privacy Policy
+                    {t("footer:privacy_policy")}
                   </Link>
                   <Link to="/page404" className="text-secondary">
-                    Terms of Service
+                    {t("footer:terms_of_service")}
                   </Link>
                 </div>
 

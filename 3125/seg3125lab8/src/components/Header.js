@@ -13,7 +13,11 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-
+import InputLabel from '@material-ui/core/InputLabel';
+import MenuItem from '@material-ui/core/MenuItem';
+import FormControl from '@material-ui/core/FormControl';
+import Select from '@material-ui/core/Select';
+import { useTranslation } from 'react-i18next';
 
 const theme = createMuiTheme({
   palette: {
@@ -24,10 +28,10 @@ const theme = createMuiTheme({
       contrastText: '#fff',
     },
     secondary: {
-      light: '#ff7961',
-      main: '#f44336',
-      dark: '#ba000d',
-      contrastText: '#000',
+      light: '#c6ff00',
+      main: '#d1ff33',
+      dark: '#8ab200',
+      contrastText: '#ffbb66',
     },
   },
 });
@@ -66,7 +70,13 @@ const usesStyles = makeStyles((theme) => ({
   submit: {
     margin: theme.spacing(3, 0, 2),
   },
+  formControl: {
+    // margin: theme.spacing(1),
+    minWidth: 150,
+  },
 }));
+
+
 
 function Copyright() {
   return (
@@ -83,21 +93,33 @@ function Copyright() {
 
 
 
-function Header() {
+function Header(props) {
+
   const classess = useStyles();
   const classes = usesStyles();
   const [open, setOpen] = React.useState(false);
-
+  const [lang,setlang] = React.useState('en');
   const handleOpen = () => {
     setOpen(true);
   };
+
 
 
   const handleClose = () => {
     setOpen(false);
   };
 
+  const changelang = (event) =>{
+    setlang(event.target.value);
+    props.functionCallFromapp(event.target.value);
+    console.log("lang " + lang)
+    i18n.changeLanguage(event.target.value);
+  }
+
+  const [t, i18n] = useTranslation();
+
   return (
+    <div>
     <h5 className="text-left py-3 bg-danger">
       <Link to="/" class="text-light px-3">
         <span className="text-warning">Wheel</span>Steals
@@ -105,21 +127,37 @@ function Header() {
       </Link>
 
       <Link to="/cars" class="text-light px-3">
-        Buy a Cars
+        {t("header:buy_a_car")}
       </Link>
 
       <Link to="/newuser" class="text-light px-3">
-        New User ?
+        {t("header:new_user")}
       </Link>
 
       <Link to="/about" class="text-light px-3">
-        AboutUs
+        {t("header:aboutus")}
       </Link>
 
-      
+      <ThemeProvider theme={theme}>
+      <FormControl className={classes.formControl} >
+        <InputLabel id="set_language" color="secondary" >{t("header:change_language")}</InputLabel>
+          <Select
+            labelId="set_language"
+            id="set_languagea"
+            value={lang}
+            onChange={changelang}
+            color="secondary"
+            class = "text-white"
+          >
+            <MenuItem value={"en"}>English</MenuItem>
+            <MenuItem value={"fr"}>French</MenuItem>
+          </Select>
+        </FormControl>
+      </ThemeProvider>
+
       <Link id="SignIn"class="text-light float-right px-3" onClick={handleOpen}>
       <img width = "30" src="./imgs/icons/icons8.png" alt="signin" />
-        MyAccount
+        {t("header:myaccount")}
       </Link>
 
       <Modal
@@ -146,7 +184,7 @@ function Header() {
                 <img width = "30" src="./imgs/icons/tire.png" alt="wheel" />
                 </h2>
                   <Typography component="h1" variant="h5">
-                    Sign In
+                    {t("header:sign_in")}
                   </Typography>
                   <form className={classess.form} noValidate>
                     <Grid 
@@ -160,7 +198,7 @@ function Header() {
                           required
                           fullWidth
                           id="UserName"
-                          label="User Name"
+                          label={t("header:l_username")}
                           autoFocus
                         />
                       </Grid>
@@ -170,7 +208,7 @@ function Header() {
                           required
                           fullWidth
                           id="email"
-                          label="Email Address"
+                          label={t("header:l_email")}
                           name="email"
                           autoComplete="email"
                         />
@@ -181,7 +219,7 @@ function Header() {
                           required
                           fullWidth
                           name="password"
-                          label="Password"
+                          label={t("header:l_password")}
                           type="password"
                           id="password"
                           autoComplete="current-password"
@@ -190,7 +228,7 @@ function Header() {
                       <Grid item xs={12}>
                         <FormControlLabel
                           control={<Checkbox value="allowExtraEmails" color="primary" />}
-                          label="I want to receive inspiration, marketing promotions and updates via email."
+                          label={t("header:l_promotion")}
                         />
                       </Grid>
                     </Grid>
@@ -202,13 +240,13 @@ function Header() {
                       color="primary"
                       className={classess.submit}
                     >
-                      Sign In
+                      {t("header:bt_sign_in")}
                     </Button>
                     </ThemeProvider>
                     <Grid container justify="flex-end">
                       <Grid item>
                         <Link href="#" variant="body2" to="/newuser" onClick={handleClose}>
-                          Don`t have an account? Sign Up
+                          {t("header:sign_up")}
                         </Link>
                       </Grid>
                     </Grid>
@@ -223,9 +261,14 @@ function Header() {
         </Fade>
       </Modal>
     </h5>
+    </div>
   );
   
 }
+
+// Header.propTypes = {
+//   classes: PropTypes.object.isRequired
+// };
 
 
 export default Header;

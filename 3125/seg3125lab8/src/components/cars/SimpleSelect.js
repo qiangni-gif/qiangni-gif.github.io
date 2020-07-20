@@ -9,7 +9,7 @@ import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-
+import { useTranslation } from 'react-i18next';
 
 const theme = createMuiTheme({
   palette: {
@@ -49,12 +49,14 @@ function valuetext(value) {
 }
 
 export default function SimpleSelect() {
+  
+  const [t, i18n] = useTranslation();
   const classes = useStyles();
   const [seat, setseat] = React.useState('');
   const [color, setcolor] = React.useState('');
   const [style, setstyle] = React.useState('');
   const slclasses = sliderStyles();
-  const [price, setprice] = React.useState([3000, 5000]);
+  const [price, setprice] = React.useState([3000, 30000]);
 
   
 
@@ -81,7 +83,8 @@ export default function SimpleSelect() {
         direction="column"
         justify="center"
         alignItems="stretch"
-        spacing={2}>
+        spacing={2}
+        >
 
           <Grid item xs={12}>
             <FormControl className={classes.formControl}>
@@ -91,7 +94,6 @@ export default function SimpleSelect() {
                 id="demo-simple-select"
                 value={seat}
                 onChange={handleChange}
-                
               >
                 <MenuItem value={2}>2</MenuItem>
                 <MenuItem value={3}>3</MenuItem>
@@ -99,7 +101,7 @@ export default function SimpleSelect() {
                 <MenuItem value={5}>5</MenuItem>
                 <MenuItem value={6}>6</MenuItem>
               </Select>
-              <FormHelperText>Number of Seats</FormHelperText>
+              <FormHelperText>{t("simple:Number_of_Seats")}</FormHelperText>
             </FormControl>
           </Grid>
 
@@ -113,13 +115,13 @@ export default function SimpleSelect() {
                 onChange={handleChangecolor}
                 
               >
-                <MenuItem value={"red"}>red</MenuItem>
-                <MenuItem value={"blue"}>blue</MenuItem>
-                <MenuItem value={"yellow"}>yellow</MenuItem>
-                <MenuItem value={"black"}>black</MenuItem>
-                <MenuItem value={"green"}>green</MenuItem>
+                <MenuItem value={"red"}>{t("simple:red")}</MenuItem>
+                <MenuItem value={"blue"}>{t("simple:blue")}</MenuItem>
+                <MenuItem value={"yellow"}>{t("simple:yellow")}</MenuItem>
+                <MenuItem value={"black"}>{t("simple:black")}</MenuItem>
+                <MenuItem value={"green"}>{t("simple:green")}</MenuItem>
               </Select>
-              <FormHelperText>choose a color</FormHelperText>
+              <FormHelperText>{t("simple:choose_a_color")}</FormHelperText>
             </FormControl>
           </Grid>
 
@@ -142,14 +144,14 @@ export default function SimpleSelect() {
                 <MenuItem value={"van"}>van</MenuItem>
                 <MenuItem value={"minivan"}>minivan</MenuItem>
               </Select>
-              <FormHelperText>choose a style</FormHelperText>
+              <FormHelperText>{t("simple:choose_a_style")}</FormHelperText>
             </FormControl>
           </Grid>
 
           <Grid item xs={12}>
             <div className={slclasses.root}>
               <Typography id="range-slider" gutterBottom>
-                  price range
+              {t("simple:price_range")}
               </Typography>
               <Slider
                   value={price}
@@ -158,13 +160,13 @@ export default function SimpleSelect() {
                   aria-labelledby="range-slider"
                   getAriaValueText={valuetext}
                   min={2000}
-                  max={9999}
+                  max={59999}
               />
             </div>
           </Grid>
 
           <Grid item xs={12}>
-            <Button variant="contained" color = "primary">update filter</Button>
+            <Button variant="contained" color = "primary">{t("simple:update_filter")}</Button>
           </Grid>
 
         </Grid>

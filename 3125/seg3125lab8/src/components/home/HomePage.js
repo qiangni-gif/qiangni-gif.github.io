@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import MoveIcon from './MoveIcon';
 
+import { withTranslation } from 'react-i18next';
+
+
+
+
 class HomePage extends Component {
     render() {
+    const { t } = this.props;
       return (
             <div className="container pt-5">
                 <div class="card bg-transparent text-white">
@@ -15,7 +21,7 @@ class HomePage extends Component {
                             <div class = "container text-center" >
                                 <div class="row justify-content-center">
                                     <div class="col-xl-7 col-lg-8">
-                                    <h3 class="mb-0 text-white">Find your car</h3>
+                                        <h3 class="mb-0 text-white">{t("homepage:Find_your_car")}</h3>
                                         <form action="">
                                             <div class="form-group">
                                                     <select class="form-control">
@@ -54,4 +60,4 @@ class HomePage extends Component {
 }
 
    
-export default HomePage;
+export default  withTranslation()(HomePage);

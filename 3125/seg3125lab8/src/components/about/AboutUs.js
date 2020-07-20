@@ -3,6 +3,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { useTranslation } from 'react-i18next';
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -38,6 +39,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Album() {
+  const [t, i18n] = useTranslation();
   const classes = useStyles();
 
   return (
@@ -52,10 +54,7 @@ export default function Album() {
                 <img width = "50" src="./imgs/icons/tire.png" alt="wheel" />
             </Typography>
             <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                <span className="text-warning">Wheel</span>Steals is a constantly growing car shopping brand,
-                which has as priority to provide quality services at affordable rates
-                and flexible terms and conditions, combined with real 24 hours support. 
-                This had established us as one of the most competitive company in the market.
+  <span className="text-warning">Wheel</span>{t("aboutus:about")}
             </Typography>
             
           </Container>

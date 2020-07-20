@@ -8,14 +8,15 @@ import rootReducer from './redux/rootReducer';
 import App from './App';
 import './index.css';
 
-
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(logger)));
 
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+	
+		<Provider store={store}>
+			<App />
+		</Provider>
+	,
 	document.getElementById('root')
 );
 

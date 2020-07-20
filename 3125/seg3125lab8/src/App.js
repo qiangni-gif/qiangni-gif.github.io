@@ -11,15 +11,37 @@ import Booking from "./components/booking/Booking";
 import NotFound from "./components/pages/NotFound";
 import NewUser from "./components/login/NewUser";
 import AboutUs from "./components/about/AboutUs";
+
+
+import { I18nextProvider } from "react-i18next";
+import i18n from "./Localization/i18n";
 // ------------------------------------------------------------
 import "./App.css";
 
+console.log("index i18n "+i18n);
+
+
+
 class App extends Component {
+  state = {
+    value: "en"
+  };
+
+  
+
   render() {
+    const handlelang = (value) => {
+      console.log("selected val is ", value);
+      this.setState({value: value});
+      console.log("state value is", this.state.value);
+      // i18n.changeLanguage(value);
+    };
+
     return (
+      <I18nextProvider i18n={i18n}>
       <Router>
         <div>
-          <Header />
+          <Header i18n={i18n} functionCallFromapp={handlelang.bind(this)} />
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route path="/cars" component={Cars} />
@@ -33,6 +55,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+    </I18nextProvider>
     );
   }
 }

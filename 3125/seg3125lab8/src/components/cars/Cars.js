@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
 import SimpleSelect from "./SimpleSelect";
+import { withTranslation } from 'react-i18next';
 
 
 
@@ -34,9 +35,10 @@ class Cars extends Component {
 	
 
 	render() {
+		const { t } = this.props;
 		return (
 			<div className="container pt-5">
-				<h4>Cars For Sale</h4>
+				<h4>{t("car:Cars_For_Sale")}</h4>
 				<hr/>
 				<div>
 					<Grid
@@ -49,7 +51,7 @@ class Cars extends Component {
 						<Grid item xs>
 							<div class = "card mb-3 shadow bg-light">
 								<form className={useStyles.root} noValidate autoComplete="off">
-									<TextField id="standard-basic" label="Search" fullWidth />
+									<TextField id="standard-basic" label={t("car:Search")} fullWidth />
 								</form>
 								<SimpleSelect/>
 							</div>
@@ -84,4 +86,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps, null)(Cars);
+export default connect(mapStateToProps, null)(withTranslation()(Cars));

@@ -2,8 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Grid from '@material-ui/core/Grid';
+import { useTranslation } from 'react-i18next';
+import Tooltip from '@material-ui/core/Tooltip';
 
 function CarItem(props) {
+  
+  const [t, i18n] = useTranslation();
   return (
     <div className="col-md-12">
       <div
@@ -45,11 +49,11 @@ function CarItem(props) {
                     alt="Seat"
                     className="icon_img op-6"
                   />{" "}
-                  {props.eachCar.seat_cap} Seater
+                  {props.eachCar.seat_cap} {t("caritem:Seater")}
                 </span>
               </p>
               <p className="text-secondary">
-                Price:{" "}
+              {t("caritem:Price")}{" "}
                 {props.eachCar.book_status ? (
                   <span className="text-secondary">
                     $. {props.eachCar.price}
@@ -61,7 +65,7 @@ function CarItem(props) {
               <div>
                 {props.eachCar.book_status ? (
                   <Link to="/" className="btn btn-secondary disabled mr-2">
-                    Book Now
+                    {t("caritem:Book_Now")}
                   </Link>
                 ) : (
                   <Link
@@ -69,16 +73,18 @@ function CarItem(props) {
                     className="btn btn-dark mr-2 book-btn"
                     onClick={() => props.bookCar(props.eachCar)}
                   >
-                    Book Now
+                    {t("caritem:Book_Now")}
                   </Link>
                 )}
+                <Tooltip title={t("caritem:show engine and other info")}>
                 <Link
                   to="/details"
                   className="btn btn-outline-dark details-btn"
                   onClick={() => props.showDetails(props.eachCar)}
                 >
-                  Details
+                  {t("caritem:Details")}
                 </Link>
+                </Tooltip>
               </div>
             </div>
           </Grid>

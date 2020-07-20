@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-
+import { withTranslation } from 'react-i18next';
 
 
 class ShowDetails extends Component {
@@ -27,6 +27,7 @@ class ShowDetails extends Component {
 
 	
 	render() {
+		const { t } = this.props;
 
 		if(Object.keys(this.props.eachCar).length===0){
 			return null;
@@ -43,11 +44,11 @@ class ShowDetails extends Component {
 								<h4 className="text-dark">{this.props.eachCar.model} {this.props.eachCar.year}</h4>
 								<p className="text-secondary">
 									<span className="mr-4"><img src="./imgs/icons/brush.png" alt="Brush" className="icon_img op-6"/> {this.props.eachCar.color}</span>
-									<span className=""><img src="./imgs/icons/seater.png" alt="Seat" className="icon_img op-6"/> {this.props.eachCar.seat_cap} Seater</span>
+									<span className=""><img src="./imgs/icons/seater.png" alt="Seat" className="icon_img op-6"/> {this.props.eachCar.seat_cap} {t("showdetail:Seater")}</span>
 								</p>
-								<p className="text-secondary">Price: <span className="text-primary">$. {this.props.eachCar.price}</span></p>
+								<p className="text-secondary">{t("showdetail:Price")} <span className="text-primary">$. {this.props.eachCar.price}</span></p>
 								<div>
-									{this.props.eachCar.book_status?<a href="#!" className="btn btn-secondary btn-block disabled mr-2">Book Now</a>:<Link to="/booking" className="btn btn-dark btn-block shadow mr-2" onClick={()=>this.props.bookCar(this.props.eachCar)}>Book Now</Link>}
+									{this.props.eachCar.book_status?<a href="#!" className="btn btn-secondary btn-block disabled mr-2">{t("showdetail:Book_Now")}</a>:<Link to="/booking" className="btn btn-dark btn-block shadow mr-2" onClick={()=>this.props.bookCar(this.props.eachCar)}>{t("showdetail:Book_Now")}</Link>}
 								</div>
 							</div>
 						</div>
@@ -55,13 +56,13 @@ class ShowDetails extends Component {
 				</div>
 				<div className="row mt-5">
 					<div className="col-12">
-						<h4>Car Details</h4>
+						<h4>{t("showdetail:Car_Details")}</h4>
 						<hr/>
-						{this.props.eachCar.book_status ? <h5><span className="badge badge-danger">Not Available</span></h5> : <h5><span className="badge badge-success">Available</span></h5>}
+						{this.props.eachCar.book_status ? <h5><span className="badge badge-danger">{t("showdetail:Not_Available")}</span></h5> : <h5><span className="badge badge-success">{t("showdetail:Available")}</span></h5>}
 						
-						<p className="text-secondary">Vehicle No.: {this.props.eachCar.veh_no}</p>
-						<p className="text-secondary">Type: {this.props.eachCar.description.type}</p>
-						<p className="text-secondary">Engine: {this.props.eachCar.description.engine}</p>
+						<p className="text-secondary">{t("showdetail:Vehicle_No")} {this.props.eachCar.veh_no}</p>
+						<p className="text-secondary">{t("showdetail:Type")} {this.props.eachCar.description.type}</p>
+						<p className="text-secondary">{t("showdetail:Engine")} {this.props.eachCar.description.engine}</p>
 						<p className="text-secondary">{this.props.eachCar.description.content}</p>
 					</div>
 				</div>
@@ -70,16 +71,16 @@ class ShowDetails extends Component {
 						(
 							<div className="row mt-5">
 								<div className="col-12">
-									<h4>Current Booking</h4>
+									<h4>{t("showdetail:Current_Booking")}</h4>
 									<hr/>
 									<div className="table-responsive-sm">
 										<table className="table table-striped">
 											<thead>
 												<tr>
-													<th>Name</th>
-													<th>Phone No.</th>
-													<th>Issue Date</th>
-													<th>Return Date</th>
+													<th>{t("showdetail:Name")}</th>
+													<th>{t("showdetail:Phone_No")}</th>
+													<th>{t("showdetail:Issue_Date")}</th>
+													<th>{t("showdetail:Return_Date")}</th>
 												</tr>
 											</thead>
 											<tbody>
@@ -119,4 +120,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShowDetails);
+export default connect(mapStateToProps, mapDispatchToProps)(withTranslation()(ShowDetails));
